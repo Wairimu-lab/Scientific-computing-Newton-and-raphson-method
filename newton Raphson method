@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "language_info": {
+      "codemirror_mode": {
+        "name": "python",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.8"
+    },
+    "kernelspec": {
+      "name": "python",
+      "display_name": "Python (Pyodide)",
+      "language": "python"
+    }
+  },
+  "nbformat_minor": 4,
+  "nbformat": 4,
+  "cells": [
+    {
+      "cell_type": "code",
+      "source": "from sympy import *\nx = Symbol('x')\nf = x ** 3 - 2*x -5\nf_prime = f.diff(x)\nf= lambdify(x,f)\nf_prime = lambdify(x, f_prime)\n\nx= input('enter x value: ')\nn=input('Enter required correct number of decimal places')\nx = float(x)\nn = int(n)\ni = 1\ncondition = True\nwhile condition:\n    g= str(x)\n    x_n= x-(f(x)/f_prime(x))\n    print('i =' , i, 'x=' , x, 'f(x)=', f(x) )\n    m= str(x_n)\n    \n    if m[0: n+2] == g[0:n+2] :\n        condition= False\n    else:\n        condition = True\n        x= x_n\n        i = i + 1\nx =str(x) \ns =  x[0:n+2]\nprint(\"Required is \", s)\n",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "ename": "<class 'TypeError'>",
+          "evalue": "float() argument must be a string or a real number, not 'PyodideFuture'",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+            "Cell \u001b[0;32mIn[7], line 10\u001b[0m\n\u001b[1;32m      8\u001b[0m x\u001b[38;5;241m=\u001b[39m \u001b[38;5;28minput\u001b[39m(\u001b[38;5;124m'\u001b[39m\u001b[38;5;124menter x value: \u001b[39m\u001b[38;5;124m'\u001b[39m)\n\u001b[1;32m      9\u001b[0m n\u001b[38;5;241m=\u001b[39m\u001b[38;5;28minput\u001b[39m(\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mEnter required correct number of decimal places\u001b[39m\u001b[38;5;124m'\u001b[39m)\n\u001b[0;32m---> 10\u001b[0m x \u001b[38;5;241m=\u001b[39m \u001b[38;5;28;43mfloat\u001b[39;49m\u001b[43m(\u001b[49m\u001b[43mx\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m     11\u001b[0m n \u001b[38;5;241m=\u001b[39m \u001b[38;5;28mint\u001b[39m(n)\n\u001b[1;32m     12\u001b[0m i \u001b[38;5;241m=\u001b[39m \u001b[38;5;241m1\u001b[39m\n",
+            "\u001b[0;31mTypeError\u001b[0m: float() argument must be a string or a real number, not 'PyodideFuture'"
+          ],
+          "output_type": "error"
+        },
+        {
+          "output_type": "stream",
+          "name": "stdin",
+          "text": "enter x value:  0\nEnter required correct number of decimal places 3\n"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
